@@ -1,4 +1,4 @@
-# CSCDynamicsInCancer
+# Cancer stem cell dynamics during tumor growth and relapse
 
 This repository contains code files written for exploring the importannce of cancer stem cell (CSC) dynamics in tumor growth and relapse dynamics. The initial verison of the code was generated for the following publication:  
 
