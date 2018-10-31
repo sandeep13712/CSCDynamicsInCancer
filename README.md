@@ -1,2 +1,10 @@
 # CSCDynamicsInCancer
-CellMigration This repository contains CC3D code and utilities for studying 2D cell migration through collagen network. The initial verison of the code was generated for following publication:  Proteolytic and non-proteolytic regulation of collective cell invasion: tuning by ECM density and organization Sandeep Kumar, Aastha Kapoor, Sejal Desai, Mandar M. Inamdar &amp; Shamik Sen Scientific Reports, volume 6, Article number: 19905 (2016) https://www.nature.com/articles/srep19905  If you need any help/clarifiation, feel free to write me at sandeep25789@gmail.com.
+
+This repository contains code files written for exploring the importannce of cancer stem cell (CSC) dynamics in tumor growth and relapse dynamics. The initial verison of the code was generated for the following publication:  
+
+Cell motility and ECM proteolysis regulate tumor growth and tumor relapse by altering the fraction of cancer stem cells and their spatial scattering
+Sandeep Kumar, Rahul Kulkarni and Shamik Sen
+Physical Biology, Volume 13, Number 3 (2016) 
+http://iopscience.iop.org/article/10.1088/1478-3975/13/3/036001/pdf
+
+If you need any help/clarifiation, feel free to write me at sandeep25789@gmail.com.
