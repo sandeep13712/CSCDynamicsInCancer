@@ -1,0 +1,925 @@
+﻿g++ -std=c++11 CellularAutomata.cpp
+
+
+clear
+
+clc
+
+data = zeros(20,9);
+f = {'AlphaPoint25Beta1', 'AlphaPoint25Beta5', 'AlphaPoint25Beta10','AlphaPoint5Beta1','AlphaPoint5Beta5','AlphaPoint5Beta10','AlphaPoint75Beta1','AlphaPoint75Beta5','AlphaPoint75Beta10'};
+
+for i = 1 : 9
+	f(i)
+	f1 = f(i)
+	f2 = f1{1,1} 
+	cd(f2);
+	filename = dir('*.csv');
+	filename.name
+	p = csvread(filename.name, 1401, 1, [1401 1 1401 26])
+	data(1:15,i) = p(1:15)';
+	data(16,i) = sum(data(1:5,i));
+	data(17,i) = sum(data(6:10,i));
+	data(18,i) = sum(data(11:15,i));
+	data(19,i) = sum(data(16:18,i));
+	data(20,i) = data(16,i)/data(19,i);
+	clear p
+	cd ..
+end
+
+
+
+
+
+clear
+
+clc
+
+data = zeros(32,9);
+f = {'AlphaPoint25Beta1', 'AlphaPoint25Beta5', 'AlphaPoint25Beta10','AlphaPoint5Beta1','AlphaPoint5Beta5','AlphaPoint5Beta10','AlphaPoint75Beta1','AlphaPoint75Beta5','AlphaPoint75Beta10'};
+
+for i = 1 : 9
+	f(i)
+	f1 = f(i)
+	f2 = f1{1,1} 
+	cd(f2);
+	filename = dir('*.csv');
+	filename.name
+	p = csvread(filename.name, 1401, 1, [1401 1 1401 26])
+	data(1:15,i) = p(1:15)';
+	data(16,i) = sum(data(1:5,i));
+	data(17,i) = sum(data(6:10,i));
+	data(18,i) = sum(data(11:15,i));
+	data(19,i) = sum(data(16:18,i));
+	data(20,i) = data(16,i)/data(19,i);
+	data(21:25,i) = p(17:21)';
+	data(26,i) = sum(data(21:25,i));
+	data(27:31,i) = p(22:26)';
+	data(32,i)=sum(data(27:31,i));
+	clear p
+	cd ..
+end
+
+
+
+
+
+clear
+
+clc
+
+data = zeros(20,9);
+f = {'AlphaPoint25Beta1', 'AlphaPoint25Beta5', 'AlphaPoint25Beta10','AlphaPoint5Beta1','AlphaPoint5Beta5','AlphaPoint5Beta10','AlphaPoint75Beta1','AlphaPoint75Beta5','AlphaPoint75Beta10'};
+
+for i = 1 : 9
+	f(i)
+	f1 = f(i)
+	f2 = f1{1,1} 
+	cd(f2);
+	filename = dir('*.csv');
+	filename.name
+	p = csvread(filename.name, 1401, 1, [1401 1 1401 15])
+	data(1:15,i) = p';
+	data(16,i) = sum(data(1:5,i));
+	data(17,i) = sum(data(6:10,i));
+	data(18,i) = sum(data(11:15,i));
+	data(19,i) = sum(data(16:18,i));
+	data(20,i) = data(16,i)/data(19,i);
+	clear p
+	cd ..
+end
+
+find . -name "*.csv" -type f -delete
+find . -name "*.txt" -type f -delete
+ECMAt1400
+find . -name "*.conf" -type f | xargs sed -i  's/MovementProbabilityMU,0.25/MovementProbabilityMU,0.50/g'
+
+
+cd AlphaPoint25Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta10
+nohup ./CellularAutomata.out &
+
+cd ..
+
+
+find . -name "*.conf" -type f | xargs sed -i  's/# Copy as Matrix  from text file with data saved in  rows/#!//usr//bin//octave -qf/g'
+
+
+% creating the image
+f = {'AlphaPoint25Beta1', 'AlphaPoint25Beta5', 'AlphaPoint25Beta10','AlphaPoint5Beta1','AlphaPoint5Beta5','AlphaPoint5Beta10','AlphaPoint75Beta1','AlphaPoint75Beta5','AlphaPoint75Beta10'};
+
+for i = 1 : 9
+	f(i)
+	f1 = f(i)
+	f2 = f1{1,1} 
+	cd(f2);
+	createImage.m
+	cd ..
+end
+
+
+
+cp ../../../createImages.m AlphaPoint25Beta1
+cp ../../../createImages.m AlphaPoint25Beta5
+cp ../../../createImages.m AlphaPoint25Beta10
+cp ../../../createImages.m AlphaPoint5Beta1
+cp ../../../createImages.m AlphaPoint5Beta5
+cp ../../../createImages.m AlphaPoint5Beta10
+cp ../../../createImages.m AlphaPoint75Beta1
+cp ../../../createImages.m AlphaPoint75Beta5
+cp ../../../createImages.m AlphaPoint75Beta10
+
+
+
+cp ../../../create.m AlphaPoint25Beta1
+cp ../../../create.m AlphaPoint25Beta5
+cp ../../../create.m AlphaPoint25Beta10
+cp ../../../create.m AlphaPoint5Beta1
+cp ../../../create.m AlphaPoint5Beta5
+cp ../../../create.m AlphaPoint5Beta10
+cp ../../../create.m AlphaPoint75Beta1
+cp ../../../create.m AlphaPoint75Beta5
+cp ../../../create.m AlphaPoint75Beta10
+
+
+
+cd AlphaPoint25Beta1
+nohup octave createImages.m &
+
+cd ../AlphaPoint25Beta5
+nohup octave createImages.m &
+
+cd ../AlphaPoint25Beta10
+nohup octave createImages.m &
+
+cd ../AlphaPoint5Beta1
+nohup octave createImages.m &
+
+cd ../AlphaPoint5Beta5
+nohup octave createImages.m &
+
+cd ../AlphaPoint5Beta10
+nohup octave createImages.m &
+
+cd ../AlphaPoint75Beta1
+nohup octave createImages.m &
+
+cd ../AlphaPoint75Beta5
+nohup octave createImages.m &
+
+cd ../AlphaPoint75Beta10
+nohup octave createImages.m &
+
+
+
+find ./CellMotility/muPoint5/ECMDPoint25/ -type f -name \*.avi
+
+
+cp `find ./CellMotility/muPoint5/ECMDPoint25/ -type f -name \*.avi` 
+
+cp `find ./CellMotility/muPoint5/ECMDPoint25/ -type f -name \*.avi` Videos/CellMotility/ECMDPoint25/
+
+cp `find ./ECMDensity/Set1/ECMDPoint25/ -type f -name \*.avi -type f -name \*.avi` Videos/ECMDensity/ECMDPoint25/
+
+cp `find ./IntrinsicParameters/Set1/Gamma200/ -type f -name \*.avi -type f -name \*.avi` Videos/IntrinsicParameters/
+
+cp `find ./WithDegradation/lambdaPoint5/ECMDPoint25/ -type f -name \*.avi -type f -name \*.avi` Videos/WithDegradation/ECMDPoint25/
+
+cp 'find /home/rahulkulkarni/Desktop/CSC_Heterogeneity/MotilityAndProteolysis/Set1/muPoint5lambdaPoint5/ECMDPoint25/  -type f -name \*.avi' /home/rahulkulkarni/Desktop/CSC_Heterogeneity/Videos/MotilityAndProteolysis/ECMDPoint25
+
+find . -type f -name '*.png' -delete
+
+
+
+cd AlphaPoint25Beta1
+cp ../../../../Code/CellularAutomata.out  .
+
+cd ../AlphaPoint25Beta5
+cp ../../../../Code/CellularAutomata.out .
+
+cd ../AlphaPoint25Beta10
+cp ../../../../Code/CellularAutomata.out .
+
+cd ../AlphaPoint5Beta1
+cp ../../../../Code/CellularAutomata.out .
+
+cd ../AlphaPoint5Beta5
+cp ../../../../Code/CellularAutomata.out .
+
+cd ../AlphaPoint5Beta10
+cp ../../../../Code/CellularAutomata.out .
+
+cd ../AlphaPoint75Beta1
+cp ../../../../Code/CellularAutomata.out .
+
+cd ../AlphaPoint75Beta5
+cp ../../../../Code/CellularAutomata.out .
+
+cd ../AlphaPoint75Beta10
+cp ../../../../Code/CellularAutomata.out .
+
+cd ../../..
+
+
+
+
+
+cd Set2/muPoint25lambdaPoint5/ECMDPoint25
+
+cd AlphaPoint25Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta10
+nohup ./CellularAutomata.out &
+
+cd ../../..
+
+
+
+
+cd Set3/muPoint25lambdaPoint5/ECMDPoint25
+
+
+cd AlphaPoint25Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta10
+nohup ./CellularAutomata.out &
+
+cd ../../..
+
+
+
+
+cd Set4/muPoint25lambdaPoint5/ECMDPoint25
+
+
+cd AlphaPoint25Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta10
+nohup ./CellularAutomata.out &
+
+cd ../../../..
+
+
+
+
+cd Set5/muPoint25lambdaPoint5/ECMDPoint25
+
+
+cd AlphaPoint25Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta10
+nohup ./CellularAutomata.out &
+
+cd ../../../..
+
+
+
+
+cd Set6/muPoint25lambdaPoint5/ECMDPoint25
+
+
+cd AlphaPoint25Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta10
+nohup ./CellularAutomata.out &
+
+cd ../../../..
+
+
+
+
+
+cd Set7/muPoint25lambdaPoint5/ECMDPoint25
+
+
+cd AlphaPoint25Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta10
+nohup ./CellularAutomata.out &
+
+cd ../../../..
+
+
+
+
+
+cd Set8/muPoint25lambdaPoint5/ECMDPoint25
+
+
+cd AlphaPoint25Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta10
+nohup ./CellularAutomata.out &
+
+cd ../../../..
+
+
+
+
+
+cd Set9/muPoint25lambdaPoint5/ECMDPoint25
+
+
+cd AlphaPoint25Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta10
+nohup ./CellularAutomata.out &
+
+cd ../../../..
+
+
+
+
+
+cd Set10/muPoint25lambdaPoint5/ECMDPoint25
+
+
+cd AlphaPoint25Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta10
+nohup ./CellularAutomata.out &
+
+cd ../../../..
+
+
+
+
+cd Set3/ECMDPoint5
+
+
+cd AlphaPoint25Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta10
+nohup ./CellularAutomata.out &
+
+cd ../../..
+
+
+
+
+cd Set4/ECMDPoint5
+
+
+cd AlphaPoint25Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta10
+nohup ./CellularAutomata.out &
+
+cd ../../..
+
+
+
+
+cd Set5/ECMDPoint5
+
+
+cd AlphaPoint25Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta10
+nohup ./CellularAutomata.out &
+
+cd ../../..
+
+
+
+
+cd Set6/ECMDPoint5
+
+
+cd AlphaPoint25Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta10
+nohup ./CellularAutomata.out &
+
+cd ../../..
+
+
+
+
+
+cd Set7/ECMDPoint5
+
+
+cd AlphaPoint25Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta10
+nohup ./CellularAutomata.out &
+
+cd ../../..
+
+
+
+
+
+cd Set8/ECMDPoint5
+
+
+cd AlphaPoint25Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta10
+nohup ./CellularAutomata.out &
+
+cd ../../..
+
+
+
+
+
+cd Set9/ECMDPoint5
+
+
+cd AlphaPoint25Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta10
+nohup ./CellularAutomata.out &
+
+cd ../../..
+
+
+
+
+
+cd Set10/ECMDPoint5
+
+
+cd AlphaPoint25Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint25Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint5Beta10
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta1
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta5
+nohup ./CellularAutomata.out &
+
+cd ../AlphaPoint75Beta10
+nohup ./CellularAutomata.out &
+
+cd ../../..
+
+
+
+
+
+cp  createImages.m  AlphaPoint25Beta1/Txt
+
+cp  createImages.m  AlphaPoint25Beta5/Txt
+
+cp  createImages.m  AlphaPoint25Beta10/Txt
+
+cp  createImages.m  AlphaPoint5Beta1/Txt
+
+cp  createImages.m  AlphaPoint5Beta5/Txt
+
+cp  createImages.m  AlphaPoint5Beta10/Txt
+
+cp  createImages.m  AlphaPoint75Beta1/Txt
+
+cp  createImages.m  AlphaPoint75Beta5/Txt
+
+cp  createImages.m  AlphaPoint75Beta10/Txt
+
+cd ..
+
+
+cp  create.m  AlphaPoint25Beta1/Txt
+
+cp  create.m  AlphaPoint25Beta5/Txt
+
+cp  create.m  AlphaPoint25Beta10/Txt
+
+cp  create.m  AlphaPoint5Beta1/Txt
+
+cp  create.m  AlphaPoint5Beta5/Txt
+
+cp  create.m  AlphaPoint5Beta10/Txt
+
+cp  create.m  AlphaPoint75Beta1/Txt
+
+cp  create.m  AlphaPoint75Beta5/Txt
+
+cp  create.m  AlphaPoint75Beta10/Txt
+
+cd ..
+
+
+cd AlphaPoint25Beta1/Txt
+nohup octave createImages.m &
+
+cd ../../AlphaPoint25Beta5/Txt
+nohup octave createImages.m &
+
+cd ../../AlphaPoint25Beta10/Txt
+nohup octave createImages.m &
+
+cd ../../AlphaPoint5Beta1/Txt
+nohup octave createImages.m &
+
+cd ../../AlphaPoint5Beta5/Txt
+nohup octave createImages.m &
+
+cd ../../AlphaPoint5Beta10/Txt
+nohup octave createImages.m &
+
+cd ../../AlphaPoint75Beta1/Txt
+nohup octave createImages.m &
+
+cd ../../AlphaPoint75Beta5/Txt
+nohup octave createImages.m &
+
+cd ../../AlphaPoint75Beta10/Txt
+nohup octave createImages.m &
+
+
+
+
+
+

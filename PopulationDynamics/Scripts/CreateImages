@@ -1,0 +1,37 @@
+cp *.m AlphaPoint25Beta1/Set1
+cp *.m AlphaPoint25Beta5/Set1
+cp *.m AlphaPoint25Beta10/Set1
+cp *.m AlphaPoint5Beta1/Set1
+cp *.m AlphaPoint5Beta5/Set1
+cp *.m AlphaPoint5Beta10/Set1
+cp *.m AlphaPoint75Beta1/Set1
+cp *.m AlphaPoint75Beta5/Set1
+cp *.m AlphaPoint75Beta10/Set1
+
+cd AlphaPoint25Beta1/Set1
+nohup octave createImages.m &
+
+cd ../../AlphaPoint25Beta5/Set1
+nohup octave createImages.m &
+
+cd ../../AlphaPoint25Beta10/Set1
+nohup octave createImages.m &
+
+cd ../../AlphaPoint5Beta1/Set1
+nohup octave createImages.m &
+
+cd ../../AlphaPoint5Beta5/Set1
+nohup octave createImages.m &
+
+cd ../../AlphaPoint5Beta10/Set1
+nohup octave createImages.m &
+
+cd ../../AlphaPoint75Beta1/Set1
+nohup octave createImages.m &
+
+cd ../../AlphaPoint75Beta5/Set1
+nohup octave createImages.m &
+
+cd ../../AlphaPoint75Beta10/Set1
+nohup octave createImages.m &
+

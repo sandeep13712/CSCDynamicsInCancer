@@ -1,0 +1,139 @@
+mkdir AlphaPoint25Beta1
+cp *.* AlphaPoint25Beta1
+
+cd AlphaPoint25Beta1
+mkdir Set1
+mkdir Set1/Txt
+mkdir Set1/Images
+sed -i 's/ALPHA,0.25/ALPHA,0.25/g' Cell_Heterogeneity.conf
+sed -i 's/BETA,1/BETA,1/g' Cell_Heterogeneity.conf
+cp *.* Set1
+
+for num in {2..10}; do
+    cp -r Set1 Set$num
+done
+cd ..
+
+
+mkdir AlphaPoint25Beta5
+cp *.* AlphaPoint25Beta5
+cd AlphaPoint25Beta5
+mkdir Set1
+mkdir Set1/Txt
+mkdir Set1/Images
+sed -i 's/ALPHA,0.25/ALPHA,0.25/g' Cell_Heterogeneity.conf
+sed -i 's/BETA,1/BETA,5/g' Cell_Heterogeneity.conf
+cp *.* Set1
+for num in {2..10}; do
+    cp -r Set1 Set$num
+done
+cd ..
+
+
+mkdir AlphaPoint25Beta10
+cp *.* AlphaPoint25Beta10
+cd AlphaPoint25Beta10
+mkdir Set1
+mkdir Set1/Txt
+mkdir Set1/Images
+sed -i 's/ALPHA,0.25/ALPHA,0.25/g' Cell_Heterogeneity.conf
+sed -i 's/BETA,1/BETA,10/g' Cell_Heterogeneity.conf
+cp *.* Set1
+
+for num in {2..10}; do
+    cp -r Set1 Set$num
+done
+cd ..
+
+
+mkdir AlphaPoint5Beta1
+cp *.* AlphaPoint5Beta1
+cd AlphaPoint5Beta1
+mkdir Set1
+mkdir Set1/Txt
+mkdir Set1/Images
+sed -i 's/ALPHA,0.25/ALPHA,0.5/g' Cell_Heterogeneity.conf
+sed -i 's/BETA,1/BETA,1/g' Cell_Heterogeneity.conf
+
+cp *.* Set1
+
+for num in {2..10}; do
+    cp -r Set1 Set$num
+done
+cd ..
+
+mkdir AlphaPoint5Beta5
+cp *.* AlphaPoint5Beta5
+cd AlphaPoint5Beta5
+mkdir Set1
+mkdir Set1/Txt
+mkdir Set1/Images
+sed -i 's/ALPHA,0.25/ALPHA,0.5/g' Cell_Heterogeneity.conf
+sed -i 's/BETA,1/BETA,5/g' Cell_Heterogeneity.conf
+
+cp *.* Set1
+
+for num in {2..10}; do
+    cp -r Set1 Set$num
+done
+cd ..
+
+mkdir AlphaPoint5Beta10
+cp *.* AlphaPoint5Beta10
+cd AlphaPoint5Beta10
+mkdir Set1
+mkdir Set1/Txt
+mkdir Set1/Images
+sed -i 's/ALPHA,0.25/ALPHA,0.5/g' Cell_Heterogeneity.conf
+sed -i 's/BETA,1/BETA,10/g' Cell_Heterogeneity.conf
+cp *.* Set1
+
+for num in {2..10}; do
+    cp -r Set1 Set$num
+done
+cd ..
+
+mkdir AlphaPoint75Beta1
+cp *.* AlphaPoint75Beta1
+cd AlphaPoint75Beta1
+mkdir Set1
+mkdir Set1/Txt
+mkdir Set1/Images
+sed -i 's/ALPHA,0.25/ALPHA,0.75/g' Cell_Heterogeneity.conf
+sed -i 's/BETA,1/BETA,1/g' Cell_Heterogeneity.conf
+cp *.* Set1
+
+for num in {2..10}; do
+    cp -r Set1 Set$num
+done
+cd ..
+
+mkdir AlphaPoint75Beta5
+cp *.* AlphaPoint75Beta5
+cd AlphaPoint75Beta5
+mkdir Set1
+mkdir Set1/Txt
+mkdir Set1/Images
+sed -i 's/ALPHA,0.25/ALPHA,0.75/g' Cell_Heterogeneity.conf
+sed -i 's/BETA,1/BETA,5/g' Cell_Heterogeneity.conf
+cp *.* Set1
+
+for num in {2..10}; do
+    cp -r Set1 Set$num
+done
+cd ..
+
+mkdir AlphaPoint75Beta10
+cp *.* AlphaPoint75Beta10
+cd AlphaPoint75Beta10
+mkdir Set1
+mkdir Set1/Txt
+mkdir Set1/Images
+sed -i 's/ALPHA,0.25/ALPHA,0.75/g' Cell_Heterogeneity.conf
+sed -i 's/BETA,1/BETA,10/g' Cell_Heterogeneity.conf
+cp *.* Set1
+
+for num in {2..10}; do
+    cp -r Set1 Set$num
+done
+cd ..
